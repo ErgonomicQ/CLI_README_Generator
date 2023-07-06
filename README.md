@@ -17,7 +17,7 @@
   ## Usage
   Open the index.js file in your preferred code editor/writer, open the terminal and invoke the command: "node index.js" (or node [what you renamed this file to].js).
 
- [![Tutorial](https://imgur.com/a/ZX9q6vD)](https://www.youtube.com/watch?v=LCLBRpowy3M "How to Use")    
+ [Tutorial](https://www.youtube.com/watch?v=LCLBRpowy3M "How to Use")    
   
   ## License
  This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
