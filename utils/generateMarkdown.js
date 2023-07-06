@@ -33,10 +33,10 @@ function renderLicenseLink(license) {
 
 // This function will generate the licence section after the switch statement
 function renderLicenseSection(license) {
-  if (license === "none"){
+  if (license === "None"){
     return "";
   } else{
-    return `## License This project is licensed under the ${renderLicenseLink(license)} license.`;
+    return `## License\n This project is licensed under the ${renderLicenseLink(license)} license.`;
   };
 };
 
@@ -70,11 +70,9 @@ function generateMarkdown(data) {
   ## Contributing
   ${data.contributions}
   
-  ## Tests
-  ${data.tests}
   
   ## Questions
-  For additional questions, please contact [${data.githubUsername}](https://github.com/${data.githubUsername}) or reach out to ${data.email}.
+  if you have any questions, you can reach me [${data.githubUsername}](https://github.com/${data.githubUsername}) or shoot me email at ${data.email}.
   `;
   };
 
