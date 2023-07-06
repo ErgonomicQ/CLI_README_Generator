@@ -71,7 +71,7 @@ function generateMarkdown(data) {
   
   
   ## Questions
-  if you have any questions, you can reach me [${data.githubUsername}](https://github.com/${data.githubUsername}) or shoot me email at ${data.email}.
+  if you have any questions, you can reach me @ [${data.githubUser}](https://github.com/${data.githubUser}) or shoot me email at ${data.email}.
   `;
   };
 
