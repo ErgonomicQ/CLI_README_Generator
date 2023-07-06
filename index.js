@@ -2,7 +2,7 @@
 
 const inquirer = require('inquirer');
 const fs = require("fs");
-const { generateMarkdown } = require('./utils/generateMarkdown.js');
+const generateMarkdown  = require('./utils/generateMarkdown');
 
 // Questions asked by the app for the user to answer
 const questions = [
@@ -36,7 +36,7 @@ const questions = [
         name: 'license',
         message: 'Choose a licence for your project:',
         choices: ['MIT', 'Apache-2.0', 'GPL-3.0', 'ISC', 'None'],
-        default: 'None',
+        default: 'MIT',
     },
     {
         type: 'input',
@@ -64,9 +64,9 @@ function writeToFile(fileName, data) {
 // this function will first run the inquirer, collect the users input then call the writeToFile function. 
 function init() {
     inquirer.prompt(questions)
-    .then((answers) => {
-        const markdownCreation = generateMarkdown(answers);
-        writeToFile(README.md, markdownCreation);
+    .then((data) => {
+        const markdownCreation = generateMarkdown(data);
+        writeToFile('README.md', markdownCreation);
     });
 }
 
