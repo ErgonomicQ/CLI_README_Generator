@@ -1,13 +1,74 @@
-// TODO: Include packages needed for this application
+// required modules + the generateMarkdown.js file that draws upon these answers
 
-// TODO: Create an array of questions for user input
-const questions = [];
+const inquirer = require('inquirer');
+const fs = require("fs");
+const { generateMarkdown } = require('./utils/generateMarkdown.js');
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Questions asked by the app for the user to answer
+const questions = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Enter the title of your project:',
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Enter the description of your project:',
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'How do you install this app(if applicable):',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How do you use this app:',
+    },
+    {
+        type: 'input',
+        name: 'contributions',
+        message: 'Who helped in the creation of this app:',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a licence for your project:',
+        choices: ['MIT', 'Apache-2.0', 'GPL-3.0', 'ISC', 'None'],
+        default: 'None',
+    },
+    {
+        type: 'input',
+        name: 'githubUser',
+        message: 'Enter your GitHub username',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address',
+    },
+];
 
-// TODO: Create a function to initialize app
-function init() {}
+// Function will collect answers, then write to a readme.md
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            console.error("error generating README.md", err);
+        } else {
+            console.log("README successfully generated!");
+        }
+    });
+}
 
-// Function call to initialize app
+// this function will first run the inquirer, collect the users input then call the writeToFile function. 
+function init() {
+    inquirer.prompt(questions)
+    .then((answers) => {
+        const markdownCreation = generateMarkdown(answers);
+        writeToFile(README.md, markdownCreation);
+    });
+}
+
+// function call
 init();
